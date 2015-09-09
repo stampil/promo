@@ -1,0 +1,1 @@
+scp -P 22 -r login@server.fr:/home/www/wp-content/uploads ../wp-content/

@@ -1,5 +1,27 @@
-*.log
-.htaccess
-sitemap.xml
-sitemap.xml.gz
-/nbproject/private/
+/nbproject/private
+wp-config.php
+/wp-content/uploads/*
+
+.sass-cache
+/tools/*.sh
+/nbproject/
+package_local.json
+
+# Drupal - Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+
+# Drupal - Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+
+# Eclipse - Ignore file
+.buildpath
+.externalToolBuilders/
+.settings/
+.project
+
+# Mac - Ignore File
+.DS_Store
+
+#certains trop long pour etre push, necessitera de faire un npm install a la racine du projet au tout debut
+node_modules

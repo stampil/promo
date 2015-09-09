@@ -1,0 +1,5 @@
+#/bin/sh!
+
+ssh -p 22 login@server.fr "mysqldump -u {user} -p'{pwd}' {bddname} | gzip" | gzip -d | mysql -u root {bddname}
+
+php ./search-replace-db/srdb.cli.php -h localhost -u root -p '' -n {bddname} -c utf\-8 -s "{domainserver.fr}" -r "{domain.dev}"

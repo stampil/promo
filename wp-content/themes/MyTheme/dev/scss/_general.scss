@@ -1,0 +1,15 @@
+﻿body {
+    margin:0 auto; 
+    max-width: 1280px;
+    min-width: 840px;
+}
+
+a, a:active, a:visited, a:focus {    
+    
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: $vert !important;
+}

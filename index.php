@@ -1,27 +1,17 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
-require_once 'inc/functions.php';
-require_once 'class/MyPDO.php';
-$bdd = new MyPDO();
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
 
-$ret = $bdd->query('SELECT * from game order by percent desc, prix_apres asc');
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define('WP_USE_THEMES', true);
 
-?>
-<style>
-    a{
-        text-decoration: none;
-        color:darkslateblue;
-    }
-</style>
-<table>
-<?php
-foreach($ret as $game){
-?>
-    <tr><td><a href="<?php echo $game->link; ?>"><img src="<?php echo $game->img; ?>" /></a></td><td><a href="<?php echo $game->link; ?>">
-        <?php echo $game->titre; ?><br />
-    <strike><?php echo $game->prix_avant; ?>€</strike> → <?php echo $game->prix_apres; ?>€ (-<?php echo $game->percent; ?>%)<br /><br />
-        
-            </a></td></tr>
-
-<?php } ?>
-</table>
+/** Loads the WordPress Environment and Template */
+require( dirname( __FILE__ ) . '/wp-blog-header.php' );
