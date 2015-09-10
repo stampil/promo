@@ -8,8 +8,12 @@
   Author URI: 
   Text Domain: perso
  */
+//TODO https://fr.gamesplanet.com/games/offers?page=1
 
 include 'functions.php';
+require_once 'inc/functions.php';
+require_once 'class/MyPDO.php';
+$bdd = new MyPDO();
 
 class perso {
 
