@@ -44,6 +44,27 @@ if(count($ret)<$max){
          color:gray;
          cursor:none;
      }
+     
+     .percent{
+         border-radius:10px;
+         font-weight:bold;
+         padding:2px;
+         opacity: 0.8;
+     }
+     .percent.heavy{
+         background:darkred;
+         color:whitesmoke;
+     }
+     .percent.strong{
+         background:red;
+         color:wheat;
+     }
+     .percent.medium{
+         background:orange;
+     }
+     .percent.light{
+         background:yellow;
+     }
 
 </style>
 
@@ -65,11 +86,23 @@ if(count($ret)<$max){
 <?php
 
 foreach($ret as $game){
+    if ($game->percent>=80) {
+        $class='heavy'; 
+    }
+    elseif ($game->percent>=75) {
+        $class='strong'; 
+    }
+    elseif($game->percent>=25){
+        $class='medium';
+    }
+    else{
+        $class='light';
+    }
 ?>
     <tr onclick="window.open('<?php echo $game->link; ?>','_blank');">
         <td><img src="<?php echo $game->img; ?>" /></td>
         <td class="padding"><?php echo $game->titre; ?></td>
-        <td class="padding" align="right">-<?php echo $game->percent; ?>%</td>
+        <td class="padding" align="right"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
         <td class="padding" align="right">
             <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
             <?php echo $game->prix_apres; ?>€
