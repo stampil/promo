@@ -1,9 +1,14 @@
 <div class="ads">
 
-	<a href="<?php echo "$dest_url[3]"; ?>"><img src="<?php echo "$img_url[3]"; ?>" alt="" /></a>
-
-	<a href="<?php echo "$dest_url[4]"; ?>"><img src="<?php echo "$img_url[4]"; ?>" alt="" /></a>
-
-	<a href="<?php echo get_option('woo_ad_page'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/ad-here.gif" alt="Advertise Here" class="last" /></a>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- promo -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9005236925951020"
+     data-ad-slot="9694479093"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 </div><!--/ads-->

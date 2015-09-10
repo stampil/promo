@@ -103,7 +103,7 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
 	
 	<div id="header"><!-- START LOGO LEVEL WITH RSS FEED -->
 		
-		<h1><a href="<?php echo get_option('home'); ?>/" title="<?php bloginfo('name'); ?>"><img src="<?php if ( get_option('woo_logo') <> "" ) {  echo get_option('woo_logo'); } else { ?><?php bloginfo('template_directory'); ?>/images/logo.gif<?php } ?>" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" /></a></h1>
+		<h1><a href="<?php echo get_option('home'); ?>/" title="<?php bloginfo('name'); ?>"><img src="<?php if ( get_option('woo_logo') <> "" ) {  echo get_option('woo_logo'); } else { ?><?php bloginfo('template_directory'); ?>/images/logo.png<?php } ?>" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" /></a></h1>
 		
 		<div id="rss">
 			
@@ -118,24 +118,6 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
 		
 	</div><!--/header -->
 	
-	<div id="suckerfish"><!-- START CATEGORY NAVIGATION (SUCKERFISH CSS) -->
-			<?php
-			if ( function_exists('has_nav_menu') && has_nav_menu('secondary-menu') ) {
-				wp_nav_menu( array( 'depth' => 3, 'sort_column' => 'menu_order', 'container' => 'ul', 'menu_class' => 'nav2', 'theme_location' => 'secondary-menu' ) );
-			} else {
-			?>
-			<ul class="nav2">
-			<?php
-			if ( get_option('woo_custom_nav_menu') == 'true' ) {
-        		if ( function_exists('woo_custom_navigation_output') )
-					woo_custom_navigation_output('name=Woo Menu 2&depth=3');
-
-			} else { ?>
-				<?php wp_list_categories('title_li=') ?>	
-			<?php } ?>
-			</ul>
-			<?php } ?>
-					
-	</div><!--/nav2-->
+<!--/nav2-->
 	
 	<div id="columns"><!-- START MAIN CONTENT COLUMNS -->

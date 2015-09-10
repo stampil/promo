@@ -8,6 +8,25 @@ $ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order 
 $ret_max = $bdd->query('SELECT FOUND_ROWS() as max_result');
 $max = (int) $ret_max[0]->max_result;
 ?>
+<style>
+    table {
+    border-collapse: collapse;
+}
+    table, tr, td, th{
+
+         border:1px solid black;
+
+    }
+    td.padding{
+        padding: 0 10px;
+    }
+    th{
+        background-color: black;
+        color:white;
+        font-weight:bold;
+    }
+
+</style>
 
 		<div class="col1">
 
@@ -15,14 +34,14 @@ $max = (int) $ret_max[0]->max_result;
 		
 		<div id="archivebox">
         	
-            	<h2><?php echo $max ?> jeux en promo aujourd'hui.</h2>        
-		<table>
+            	<h2><?php echo $max ?> jeux en promo aujourd'hui.</h2>      
+                <br />
+		<table style="border:1px solid black;" width="100%">
                     <tr>
-                        <th>Vignette</th>
+                        <th width="120">Vignette</th>
                         <th>Titre</th>
-                        <th>Pourcentage</th>
-                        <th>Prix d'origine</th>
-                        <th>Prix maintenant</th>
+                        <th width="45">Remise</th>
+                        <th width="45">Prix</th>
                     </tr>
 <?php
 
@@ -30,10 +49,12 @@ foreach($ret as $game){
 ?>
     <tr onclick="window.open('<?php echo $game->link; ?>','_blank');">
         <td><img src="<?php echo $game->img; ?>" /></td>
-        <td><?php echo $game->titre; ?></td>
-        <td>-<?php echo $game->percent; ?>%</td>
-        <td><strike><?php echo $game->prix_avant; ?>€</strike></td>
-        <td><?php echo $game->prix_apres; ?>€</td>
+        <td class="padding"><?php echo $game->titre; ?></td>
+        <td class="padding" align="right">-<?php echo $game->percent; ?>%</td>
+        <td class="padding" align="right">
+            <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
+            <?php echo $game->prix_apres; ?>€
+        </td>
     </tr>
 
 <?php } ?>
