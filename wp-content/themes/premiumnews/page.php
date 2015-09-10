@@ -4,9 +4,17 @@ $nb_display = 50;
 if(isset($_GET["pagin"]) && is_numeric($_GET["pagin"])){
     $p=$_GET["pagin"];
 }
-$ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by percent desc, prix_apres asc LIMIT '.$p.','.$nb_display, array(date('Y-m-d')));
+$sql = 'SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by percent desc, prix_apres asc LIMIT '.(($p-1)*$nb_display).','.$nb_display;
+$param = date('Y-m-d');
+
+$ret = $bdd->query($sql, array($param));
 $ret_max = $bdd->query('SELECT FOUND_ROWS() as max_result');
 $max = (int) $ret_max[0]->max_result;
+
+if(count($ret)<$max){
+    $pagination = true;
+    $max_page = ceil($max/$nb_display);
+}
 ?>
 <style>
     table {
@@ -25,6 +33,17 @@ $max = (int) $ret_max[0]->max_result;
         color:white;
         font-weight:bold;
     }
+    ul.pagination-links li{
+        display: inline-block;
+        cursor:pointer;
+    }
+     ul.pagination-links li:hover{
+         text-decoration: underline;
+     }
+     ul.pagination-links li.active a{
+         color:gray;
+         cursor:none;
+     }
 
 </style>
 
@@ -59,6 +78,19 @@ foreach($ret as $game){
 
 <?php } ?>
 </table>
+                <ul class="pagination-links">
+                <?php
+                if($pagination){
+                    
+                    for($pag =1; $pag<=$max_page; $pag++){
+                    ?>
+                    <li <?php if($pag==$p) echo 'class="active"' ?>><a href="?pagin=<?php echo $pag; ?>"><?php echo $pag; ?></a></li>
+                <?php
+                }
+                }
+                
+                ?>
+                </ul>
 		</div>
 	
 		<?php endif; ?>							
