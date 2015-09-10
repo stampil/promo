@@ -1,4 +1,4 @@
-<div class="ads">
+<div class="ads" style="height:280px">
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- promo droite -->
