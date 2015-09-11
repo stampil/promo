@@ -12,7 +12,7 @@ $ret_max = $bdd->query('SELECT count(*) as max_result FROM `game` WHERE creato=?
 $max = (int) $ret_max[0]->max_result;
 
 if(!$max){
-    include 'wp-content/plugins/MyPlugin/robot_steam.php';
+    include 'wp-content/plugins/MyPlugin/robot.php';
 }
 
 

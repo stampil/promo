@@ -9,14 +9,15 @@ $bdd = new MyPDO();
 
 $p = 1;
 do {
-    $file = 'http://store.steampowered.com/search/results?sort_by=Released_DESC&os=win&specials=1&page=' . $p;
+    $file = 'https://fr.gamesplanet.com/games/offers?page=' . $p;
     $homepage = file_get_contents($file);
     $homepage = mb_convert_encoding($homepage, 'UTF-8', 'iso-8859-1');
     $homepage = utf8_decode($homepage);
-
-    preg_match_all('|<a href="(.*)".*data-ds-appid=".+".*>.*><img src="(.*)".*<span class="title">(.*)</span>.*<div class="col search_discount">.*<span>-(.+)%.*<strike>([0-9.,]+)€</strike></span><br>([0-9.,]+)€.*</a>|sU', $homepage, $matches);
     
-    list($all,$link,$photos,$titre,$percent,$prix_avant,$prix_apres) = $matches;
+
+    preg_match_all('|<div class="game".*src="(.*)".*<a href="(.*)">(.*)</a></h4>.*<strike>(.*)</strike>.*-(.*)%.*([0-9,\.]+)€.*</div>|sU', $homepage, $matches);
+    
+    list($all,$photos, $link,$titre,$prix_avant, $percent,$prix_apres) = $matches;
     
     $nb_titre = count($titre);
 
@@ -32,7 +33,7 @@ do {
                     . ' link = IF(VALUES(percent) > percent, VALUES(link),link)',array(
                 trim($titre[$i]),
                 simple_format($titre[$i]),
-                trim($link[$i]),
+                trim('https://fr.gamesplanet.com'.$link[$i]),
                 $photos[$i],
                 str_replace(',','.',$prix_avant[$i]),
                 str_replace(',','.',$prix_apres[$i]),
