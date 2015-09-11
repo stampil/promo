@@ -54,12 +54,24 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
 
 
 <style>
-        #cookie-banner-message a{
+    .vignette_jeux_video{
+        max-width:120px;
+        max-height: 45px;
+        cursor:help;
+    }
+     #cookie-banner-message a{
         color:white;
     }
+    .tronq_titre{
+        width:102px;
+        height: 42px;
+        overflow: hidden;
+        
+    }
+    
     table {
-    border-collapse: collapse;
-}
+        border-collapse: collapse;
+    }
     table, tr, td, th{
          border:1px solid black;
     }

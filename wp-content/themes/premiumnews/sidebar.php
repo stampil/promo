@@ -53,8 +53,8 @@ foreach($ret as $game){
     }
 ?>
                     <tr onclick="window.open('<?php echo $game->link; ?>', '_blank');">
-                        <td><img src="<?php echo $game->img; ?>" /></td>
-                        <td class="padding"><?php echo $game->titre; ?></td>
+                        <td><img src="<?php echo $game->img; ?>" alt="<?php echo str_replace('"','',$game->titre); ?> en promo" title="<?php echo str_replace('"','',$game->titre); ?> en promotion" class="vignette_jeux_video" /></td>
+                        <td class="padding"><div class="tronq_titre"><?php echo $game->titre; ?></div></td>
                         <td class="padding" align="right"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
                         <td class="padding" align="right">
                             <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
@@ -96,8 +96,8 @@ foreach($ret as $game){
     }
 ?>
                     <tr onclick="window.open('<?php echo $game->link; ?>', '_blank');">
-                        <td><img src="<?php echo $game->img; ?>" /></td>
-                        <td class="padding"><?php echo $game->titre; ?></td>
+                        <td><img src="<?php echo $game->img; ?>" alt="<?php echo str_replace('"','',$game->titre); ?> en promo" title="<?php echo str_replace('"','',$game->titre); ?> en promotion" class="vignette_jeux_video" /></td>
+                        <td class="padding"><div class="tronq_titre"><?php echo $game->titre; ?></div></td>
                         <td class="padding" align="right"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
                         <td class="padding" align="right">
                             <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
