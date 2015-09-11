@@ -8,6 +8,8 @@ $nb_display = 50;
 if(isset($_GET["pagin"]) && is_numeric($_GET["pagin"])){
     $p=$_GET["pagin"];
 }
+require 'wp-content/plugins/MyPlugin/class/MyPDO.php';
+$bdd = new MyPDO();
 $ret_max = $bdd->query('SELECT count(*) as max_result FROM `game` WHERE creato=?',date('Y-m-d'));
 $max = (int) $ret_max[0]->max_result;
 

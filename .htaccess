@@ -3,6 +3,42 @@
 RewriteEngine On
 RewriteBase /
 RewriteRule ^robots\.txt$ /robots.php [NC,L]
+#Check to see if browser can accept gzip files. If so and we have it - serve it!
+RewriteOptions Inherit
+ReWriteCond %{HTTP:accept-encoding} (gzip.*)
+ReWriteCond %{REQUEST_FILENAME} !.+\.gz$
+RewriteCond %{REQUEST_FILENAME}.gz -f
+RewriteRule (.+) $1.gz [QSA,L]
+</IfModule>
+
+<IfModule deflate_module>
+    # Enable compression for the following file types.
+    AddOutputFilterByType            \
+     DEFLATE                         \
+      application/javascript         \
+      text/css                       \
+      text/html                      \
+      text/javascript                \
+      text/plain                     \
+      text/xml
+</IfModule>
+
+<IfModule mod_gzip.c>
+    mod_gzip_on Yes
+    mod_gzip_item_exclude file \.(gz|zip|xsl)$
+    mod_gzip_item_include mime ^text/html$
+	mod_gzip_item_include mime ^text/plain$
+	mod_gzip_item_include mime ^image/x-icon$
+	mod_gzip_item_include mime ^httpd/unix-directory$
+	mod_gzip_item_include mime ^text/javascript$
+	mod_gzip_item_include mime ^application/javascript$
+	mod_gzip_item_include mime ^application/x-javascript$
+	mod_gzip_item_include mime ^text/x-js$
+	mod_gzip_item_include mime ^text/ecmascript$
+	mod_gzip_item_include mime ^application/ecmascript$
+	mod_gzip_item_include mime ^text/vbscript$
+	mod_gzip_item_include mime ^text/fluffscript$
+	mod_gzip_item_include mime ^text/css$
 </IfModule>
 # END 
 

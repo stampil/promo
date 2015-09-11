@@ -4,6 +4,9 @@ $nb_display = 50;
 if(isset($_GET["pagin"]) && is_numeric($_GET["pagin"])){
     $p=$_GET["pagin"];
 }
+require 'wp-content/plugins/MyPlugin/class/MyPDO.php';
+$bdd = new MyPDO();
+
 $sql = 'SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by percent desc, prix_apres asc, titre LIMIT '.(($p-1)*$nb_display).','.$nb_display;
 $param = date('Y-m-d');
 
