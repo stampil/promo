@@ -11,6 +11,8 @@
 <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php if ( get_option('woo_feedburner_url') <> "" ) { echo get_option('woo_feedburner_url'); } else { echo get_bloginfo_rss('rss2_url'); } ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/includes/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/includes/js/Tag_google_analytics.js"></script>
+
 <?php wp_head(); ?>
 
 <!--[if lte IE 6]>
@@ -48,7 +50,13 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
     });
     
 });
-</script>        
+</script>  
+
+<style>
+    #cookie-banner-message a{
+        color:white;
+    }
+</style>
  
 </head>
 
@@ -88,14 +96,14 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
 
 		<div id="nav-right">		
 		
-			<form method="get" id="searchform" action="<?php bloginfo('home'); ?>/">
+			<!--form method="get" id="searchform" action="<?php bloginfo('home'); ?>/">
 				
 				<div id="search">
 					<input type="text" value="<?php _e('Enter your search keywords here...',woothemes); ?>" onclick="this.value='';" name="s" id="s" />
 					<input name="" type="image" src="<?php bloginfo('template_directory'); ?>/styles/<?php echo "$style_path"; ?>/ico-go.gif" value="<?php _e('Go',woothemes); ?>" class="btn"  />
 				</div><!--/search -->
 				
-			</form>
+			</form-->
 		
 		</div><!--/nav-right -->
 		
@@ -105,16 +113,16 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
 		
 		<h1><a href="<?php echo get_option('home'); ?>/" title="<?php bloginfo('name'); ?>"><img src="<?php if ( get_option('woo_logo') <> "" ) {  echo get_option('woo_logo'); } else { ?><?php bloginfo('template_directory'); ?>/images/logo.png<?php } ?>" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" /></a></h1>
 		
-		<div id="rss">
+		<!--div id="rss">
 			
 			<a href="<?php if ( get_option('woo_feedburner_url') <> "" ) { echo get_option('woo_feedburner_url'); } else { echo get_bloginfo_rss('rss2_url'); } ?>"><img src="<?php bloginfo('template_directory'); ?>/images/ico-rss.gif" alt="" /></a>
 			
 			<ul>
 				<li class="hl"><a href="<?php if ( get_option('woo_feedburner_url') <> "" ) { echo get_option('woo_feedburner_url'); } else { echo get_bloginfo_rss('rss2_url'); } ?>"><?php _e('SUBSCRIBE TO THE RSS FEED',woothemes); ?></a></li>
-				<li><a href="<?php echo get_option('woo_feedburner_id'); ?>" target="_blank"><?php _e('SUBSCRIBE TO THE FEED VIA E-MAIL',woothemes); ?></a></li>
+				
 			</ul>
 			
-		</div><!--/rss-->
+		</div--><!--/rss-->
 		
 	</div><!--/header -->
 	
