@@ -52,17 +52,66 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
 });
 </script>  
 
+
 <style>
-    #cookie-banner-message a{
+        #cookie-banner-message a{
         color:white;
     }
+    table {
+    border-collapse: collapse;
+}
+    table, tr, td, th{
+         border:1px solid black;
+    }
+    td.padding{
+        padding: 0 10px;
+        cursor:pointer;
+    }
+    th{
+        background-color: black;
+        color:white;
+        font-weight:bold;
+    }
+    ul.pagination-links li{
+        display: inline-block;
+        cursor:pointer;
+    }
+     ul.pagination-links li:hover{
+         text-decoration: underline;
+     }
+     ul.pagination-links li.active a{
+         color:gray;
+         cursor:none;
+     }
+     
+     .percent{
+         border-radius:10px;
+         font-weight:bold;
+         padding:2px;
+         opacity: 0.8;
+     }
+     .percent.heavy{
+         background:darkred;
+         color:whitesmoke;
+     }
+     .percent.strong{
+         background:red;
+         color:wheat;
+     }
+     .percent.medium{
+         background:orange;
+     }
+     .percent.light{
+         background:yellow;
+     }
+
 </style>
  
 </head>
 
 <body <?php body_class(); ?>>
-
-<?php
+    
+    <?php
 	$featuredcat = get_option('woo_featured_category'); // ID of the Featured Category
 	$GLOBALS[ex_feat] = $wpdb->get_var("SELECT term_id FROM $wpdb->terms WHERE name='$featuredcat'");
 

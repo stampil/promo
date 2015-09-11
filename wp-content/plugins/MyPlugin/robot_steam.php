@@ -1,5 +1,7 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+if (!headers_sent()) {
+    header('Content-Type: text/html; charset=utf-8');
+}
 require_once 'inc/functions.php';
 require_once 'class/MyPDO.php';
 $bdd = new MyPDO();
@@ -11,11 +13,7 @@ do {
     $homepage = file_get_contents($file);
     $homepage = mb_convert_encoding($homepage, 'UTF-8', 'iso-8859-1');
     $homepage = utf8_decode($homepage);
-    echo '<p>' . $p . '</p>';
-    ?>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
-    <?php
     preg_match_all('|<a href="(.*)".*data-ds-appid=".+".*>.*><img src="(.*)".*<span class="title">(.*)</span>.*<div class="col search_discount">.*<span>-(.+)%.*<strike>([0-9.,]+)€</strike></span><br>([0-9.,]+)€.*</a>|sU', $homepage, $matches);
     
     list($all,$link,$photos,$titre,$percent,$prix_avant,$prix_apres) = $matches;

@@ -16,57 +16,7 @@ if(count($ret)<$max){
     $max_page = ceil($max/$nb_display);
 }
 ?>
-<style>
-    table {
-    border-collapse: collapse;
-}
-    table, tr, td, th{
 
-         border:1px solid black;
-
-    }
-    td.padding{
-        padding: 0 10px;
-    }
-    th{
-        background-color: black;
-        color:white;
-        font-weight:bold;
-    }
-    ul.pagination-links li{
-        display: inline-block;
-        cursor:pointer;
-    }
-     ul.pagination-links li:hover{
-         text-decoration: underline;
-     }
-     ul.pagination-links li.active a{
-         color:gray;
-         cursor:none;
-     }
-     
-     .percent{
-         border-radius:10px;
-         font-weight:bold;
-         padding:2px;
-         opacity: 0.8;
-     }
-     .percent.heavy{
-         background:darkred;
-         color:whitesmoke;
-     }
-     .percent.strong{
-         background:red;
-         color:wheat;
-     }
-     .percent.medium{
-         background:orange;
-     }
-     .percent.light{
-         background:yellow;
-     }
-
-</style>
 
 		<div class="col1">
 
@@ -100,7 +50,7 @@ foreach($ret as $game){
     }
 ?>
     <tr onclick="window.open('<?php echo $game->link; ?>','_blank');">
-        <td><img src="<?php echo $game->img; ?>" /></td>
+        <td><img src="<?php echo $game->img; ?>" alt="<?php echo str_replace('"','',$game->titre); ?> en promo" title="<?php echo str_replace('"','',$game->titre); ?> en promotion" /></td>
         <td class="padding"><?php echo $game->titre; ?></td>
         <td class="padding" align="right"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
         <td class="padding" align="right">

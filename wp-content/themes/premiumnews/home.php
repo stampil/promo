@@ -8,6 +8,14 @@ $nb_display = 50;
 if(isset($_GET["pagin"]) && is_numeric($_GET["pagin"])){
     $p=$_GET["pagin"];
 }
+$ret_max = $bdd->query('SELECT count(*) as max_result FROM `game` WHERE creato=?',date('Y-m-d'));
+$max = (int) $ret_max[0]->max_result;
+
+if(!$max){
+    include 'wp-content/plugins/MyPlugin/robot_steam.php';
+}
+
+
 $ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by percent desc, prix_apres asc LIMIT '.$p.','.$nb_display, array(date('Y-m-d')));
 $ret_max = $bdd->query('SELECT FOUND_ROWS() as max_result');
 $max = (int) $ret_max[0]->max_result;
