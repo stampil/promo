@@ -63,7 +63,7 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
         color:white;
     }
     .tronq_titre{
-        width:102px;
+        width:80px;
         height: 42px;
         overflow: hidden;
         
