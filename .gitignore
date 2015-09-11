@@ -1,7 +1,8 @@
 /nbproject/private
 wp-config.php
 /wp-content/uploads/*
-
+.idea
+.idea/*
 .sass-cache
 /tools/*.sh
 /nbproject/
