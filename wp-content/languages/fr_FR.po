@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-09-07 09:26:48+0000\n"
+"PO-Revision-Date: 2015-09-10 15:08:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,7 +33,7 @@ msgstr "Ouvrir/fermer la section&nbsp;: %s"
 #. Asian characters), enter 'characters_excluding_spaces' or
 #. 'characters_including_spaces'. Otherwise, enter 'words'. Do not translate
 #. into your own language.
-#: wp-includes/formatting.php:2862 wp-includes/script-loader.php:409
+#: wp-includes/formatting.php:2864 wp-includes/script-loader.php:409
 msgctxt "Word count type. Do not translate!"
 msgid "words"
 msgstr "words"
@@ -2017,12 +2017,12 @@ msgid "Back"
 msgstr "Retour"
 
 #. translators: used to join last two items in a list with more than 2 times
-#: wp-includes/formatting.php:3899
+#: wp-includes/formatting.php:3901
 msgid "%s, and %s"
 msgstr "%s et %s"
 
 #. translators: used to join items in a list with only 2 items
-#: wp-includes/formatting.php:3901
+#: wp-includes/formatting.php:3903
 msgid "%s and %s"
 msgstr "%s et %s"
 
@@ -2099,7 +2099,7 @@ msgid "Add Video Source"
 msgstr "Ajouter une source vidéo"
 
 #. translators: used to join items in a list with more than 2 items
-#: wp-includes/formatting.php:3897
+#: wp-includes/formatting.php:3899
 msgid "%s, %s"
 msgstr "%s, %s"
 
@@ -2700,19 +2700,19 @@ msgstr "Lecture/Pause"
 msgid "Mute Toggle"
 msgstr "Couper le son"
 
-#: wp-includes/formatting.php:2754
+#: wp-includes/formatting.php:2756
 msgid "%s week"
 msgid_plural "%s weeks"
 msgstr[0] "%s semaine"
 msgstr[1] "%s semaines"
 
-#: wp-includes/formatting.php:2759
+#: wp-includes/formatting.php:2761
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] "%s mois"
 msgstr[1] "%s mois"
 
-#: wp-includes/formatting.php:2764
+#: wp-includes/formatting.php:2766
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] "%s année"
@@ -3736,7 +3736,7 @@ msgid "Y"
 msgstr "Y"
 
 #. translators: opening curly double quote
-#: wp-includes/formatting.php:88 wp-includes/formatting.php:4148
+#: wp-includes/formatting.php:88 wp-includes/formatting.php:4150
 msgctxt "opening curly double quote"
 msgid "&#8220;"
 msgstr "&laquo;&nbsp;"
@@ -3905,7 +3905,7 @@ msgstr "Documentation"
 msgid "Support Forums"
 msgstr "Forums d&rsquo;entraide"
 
-#: wp-includes/formatting.php:2851 wp-includes/general-template.php:2853
+#: wp-includes/formatting.php:2853 wp-includes/general-template.php:2853
 msgid "&hellip;"
 msgstr "&hellip;"
 
@@ -3965,7 +3965,7 @@ msgctxt "admin color scheme"
 msgid "Blue"
 msgstr "Bleu"
 
-#: wp-includes/formatting.php:3683
+#: wp-includes/formatting.php:3685
 msgid "The timezone you have entered is not valid. Please select a valid timezone."
 msgstr "Le fuseau horaire ne semble pas être valide. Veuillez en choisir un valide."
 
@@ -4741,15 +4741,15 @@ msgstr "Un menu nommé <strong>%s</strong> est en conflit avec un autre nom de m
 msgid "The given object ID is not that of a menu item."
 msgstr "L&rsquo;identifiant donné pour cet objet n&rsquo;est pas une entrée de menu."
 
-#: wp-includes/formatting.php:3514
+#: wp-includes/formatting.php:3516
 msgid "The email address entered did not appear to be a valid email address. Please enter a valid email address."
 msgstr "L&rsquo;adresse de messagerie fournie ne semble pas être valide. Veuillez saisir une adresse valide."
 
-#: wp-includes/formatting.php:3615
+#: wp-includes/formatting.php:3617
 msgid "The WordPress address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr "L&rsquo;adresse de WordPress que vous avez saisie ne semble pas être valide. Veuillez entrer une adresse valide."
 
-#: wp-includes/formatting.php:3628
+#: wp-includes/formatting.php:3630
 msgid "The Site address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr "L&rsquo;adresse de site que vous avez saisie ne semble pas être valide. Veuillez entrer une adresse valide."
 
@@ -5404,19 +5404,19 @@ msgid "Comment on %1$s by %2$s"
 msgstr "Commentaires sur %1$s par %2$s"
 
 #. translators: min=minute
-#: wp-includes/formatting.php:2739
+#: wp-includes/formatting.php:2741
 msgid "%s min"
 msgid_plural "%s mins"
 msgstr[0] "%s minute"
 msgstr[1] "%s minutes"
 
-#: wp-includes/formatting.php:2744
+#: wp-includes/formatting.php:2746
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s heure"
 msgstr[1] "%s heures"
 
-#: wp-includes/formatting.php:2749
+#: wp-includes/formatting.php:2751
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "%s jour"
@@ -6575,12 +6575,6 @@ msgstr "Les inscriptions d&rsquo;utilisateurs sont désactivées."
 msgid "Missing Attachment"
 msgstr "Fichier attaché manquant"
 
-#. translators: $dec_point argument for http:php.net/number_format, default is
-#. .
-#: wp-includes/locale.php:178
-msgid "number_format_decimal_point"
-msgstr ", "
-
 #: wp-includes/post.php:136
 msgid "Pending <span class=\"count\">(%s)</span>"
 msgid_plural "Pending <span class=\"count\">(%s)</span>"
@@ -6859,6 +6853,12 @@ msgstr "Sélectionner un mois"
 #: wp-includes/class-wp-editor.php:855
 msgid "Select all"
 msgstr "Tout sélectionner"
+
+#. translators: $dec_point argument for http:php.net/number_format, default is
+#. .
+#: wp-includes/locale.php:178
+msgid "number_format_decimal_point"
+msgstr ","
 
 #: wp-includes/class-wp-customize-panel.php:375
 #: wp-includes/class-wp-customize-panel.php:469
