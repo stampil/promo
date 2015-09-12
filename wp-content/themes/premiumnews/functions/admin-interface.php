@@ -103,14 +103,14 @@ function woothemes_add_admin() {
    		// Sanitize page being requested.
    		$_page = '';
 
-		$_page = mysql_real_escape_string( strtolower( trim( strip_tags( $_REQUEST['page'] ) ) ) );
+		$_page = esc_sql( strtolower( trim( strip_tags( $_REQUEST['page'] ) ) ) );
 
 		// Sanitize action being requested.
    		$_action = '';
 
 		if ( isset( $_REQUEST['woo_save'] ) ) {
 
-			$_action = mysql_real_escape_string( strtolower( trim( strip_tags( $_REQUEST['woo_save'] ) ) ) );
+			$_action = esc_sql( strtolower( trim( strip_tags( $_REQUEST['woo_save'] ) ) ) );
 
 		} // End IF Statement
 

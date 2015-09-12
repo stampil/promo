@@ -22,25 +22,6 @@ $ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order 
 $ret_max = $bdd->query('SELECT FOUND_ROWS() as max_result');
 $max = (int) $ret_max[0]->max_result;
 ?>
-<style>
-    table {
-    border-collapse: collapse;
-}
-    table, tr, td, th{
-
-         border:1px solid black;
-
-    }
-    td.padding{
-        padding: 0 10px;
-    }
-    th{
-        background-color: black;
-        color:white;
-        font-weight:bold;
-    }
-
-</style>
 
 		<div class="col1">
 
