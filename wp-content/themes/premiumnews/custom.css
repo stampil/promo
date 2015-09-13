@@ -1,1 +1,65 @@
 #cookie-banner-message a,th{color:#fff}.percent,th{font-weight:700}.vignette_jeux_video{width:120px;height:45px;cursor:help}.tronq_titre{width:80px;height:42px;overflow:hidden}table{border-collapse:collapse}table,td,th,tr{border:1px solid #000}td.padding{padding:0 10px;cursor:pointer}th{background-color:#000}ul.pagination-links li{display:inline-block;cursor:pointer}ul.pagination-links li:hover{text-decoration:underline}ul.pagination-links li.active a{color:gray;cursor:none}.percent{border-radius:10px;padding:2px;opacity:.8}.percent.heavy{background:#8b0000;color:#f5f5f5}.percent.strong{background:red;color:wheat}.percent.medium{background:orange}.percent.light{background:#ff0}
+@media only screen and (max-width: 977px) {
+    #page{
+        width:500px;
+    }
+    .col1 {
+        float: none;
+        width: 450px;
+    }
+    .col2 {
+        float: none;
+        margin: auto;
+    }
+    #archivebox {
+        width: 430px;
+    }
+    table{
+        margin:auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #page{
+        width:390px;
+    }
+    .col1 {
+        float: none;
+        width: 350px;
+    }
+    .col2 {
+        float: none;
+        margin: auto;
+    }
+    #archivebox {
+        width: 330px;
+    }
+    table{
+        margin:auto;
+    }
+}
+@media only screen and (max-width: 320px) {
+    #page{
+        width:320px;
+    }
+    .col1 {
+        float: none;
+        width: 300px;
+    }
+    .col2 {
+        float: none;
+        margin: auto;
+    }
+    #archivebox {
+        width: 290px;
+    }
+    table{
+        margin:auto;
+    }
+	img.size-medium{
+		width:250px
+	}
+	#attachment_30{
+		width:290px;
+	}
+}
