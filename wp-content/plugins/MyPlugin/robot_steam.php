@@ -17,17 +17,24 @@ do {
 
     preg_match_all('|<a href="(.*)".*data-ds-appid=".+".*>.*><img src="(.*)".*<span class="title">(.*)</span>.*<div class="col search_discount">.*<span>-(.+)%.*<strike>([0-9.,]+)€</strike></span><br>([0-9.,]+)€.*</a>|sU', $homepage, $matches);
     
-    list($all,$link,$photos,$titre,$percent,$prix_avant,$prix_apres) = $matches;
+    list($all,$link,$photos,$titres,$percent,$prix_avant,$prix_apres) = $matches;
     
-    $nb_titre = count($titre);
+    $nb_titre = count($titres);
 
+    //print_r($titre);
 
 
     if ($nb_titre) {
         for($i=0;$i<$nb_titre;$i++){
             
-            $titre =  trim($titre[$i]);
-            $simple_titre = simple_format($titre[$i]);
+            
+
+            $titre =  trim($titres[$i]);
+           
+
+            $simple_titre = simple_format($titre);
+            
+           
             $link = trim($link[$i]);
             $photo = $photos[$i];
             $prix_avant = str_replace(',','.',$prix_avant[$i]);
@@ -45,10 +52,11 @@ do {
             );
             
             if($percent>0){
-                echo $simple_titre.':'.$percent."\n";
+                //echo $simple_titre.':'.$percent."\n";
                 $ret = $bdd->query($sql,$data);
             }
         }
     }
+
     $p++;
 } while ($nb_titre > 0);
