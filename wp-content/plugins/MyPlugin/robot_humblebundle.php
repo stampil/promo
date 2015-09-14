@@ -28,8 +28,10 @@ do {
             $simple_titre = simple_format($titre);
             $link = 'https://www.humblebundle.com/store/p/'.trim($homepage->results[$i]->machine_name);
             $photo = 'https://www.humblebundle.com'.trim($homepage->results[$i]->storefront_featured_image_small);
-            $prix_avant =  str_replace(',','.',$homepage->results[$i]->full_price[0]);
+            $prix_avant = str_replace(',','.',$homepage->results[$i]->full_price[0]);
+            $prix_avant =  number_format($prix_avant*1.36,2,'.',''); //conversion GBP/EUR
             $prix_apres = str_replace(',','.',$homepage->results[$i]->current_price[0]);
+            $prix_apres = number_format($prix_apres*1.36,2,'.',''); //conversion GBP/EUR
             $percent = round((($prix_avant-$prix_apres)/$prix_avant)*100);
             
             if($percent>0){
