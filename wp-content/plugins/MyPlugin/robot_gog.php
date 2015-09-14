@@ -8,7 +8,9 @@ $bdd = new MyPDO();
 
 
 $p = 1;
-echo 'robot_gog'."\n\n";
+
+echo 'robot_gog'."\n";
+echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
 do {
     $file = 'http://www.gog.com/games/ajax/filtered?mediaType=game&price=discounted&sort=bestselling&page=' . $p;
     //echo $file.'<br />';
@@ -46,11 +48,11 @@ do {
                     $prix_apres,
                     $percent
                 );
-            
-                //echo $simple_titre.':'.$percent."\n";
+                            
                 $ret = $bdd->query($sql,$data);
             }
 
         }
 $p++;
 } while ($nb_result > 0);
+echo "\nFin du script: ".date("H:i:s", microtime(true));

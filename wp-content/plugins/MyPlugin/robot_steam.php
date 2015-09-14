@@ -9,6 +9,7 @@ $bdd = new MyPDO();
 
 $p = 1;
 echo 'robot_steam'."\n\n";
+echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
 do {
     $file = 'http://store.steampowered.com/search/results?sort_by=Released_DESC&os=win&specials=1&page=' . $p;
     $homepage = file_get_contents($file);
@@ -50,9 +51,9 @@ do {
                 $prix_apres,
                 $percent
             );
-            
+                        
             if($percent>0){
-                //echo $simple_titre.':'.$percent."\n";
+                
                 $ret = $bdd->query($sql,$data);
             }
         }
@@ -60,3 +61,4 @@ do {
 
     $p++;
 } while ($nb_titre > 0);
+echo "\nFin du script: ".date("H:i:s", microtime(true));

@@ -30,7 +30,7 @@
 <meta name="DC.format" content="text/html" />
 <meta name="DC.identifier" content="http://jeuxenpromotion.fr" />
 <meta name="DC.publisher" content="jeuxenpromotion.fr" />
-<meta name="DC.title" content="Jeuxenpromotion - réductions et promo jeux vidéo PC !" />
+<meta name="DC.title" content="Jeuxenpromotion - rÃ©ductions et promo jeux vidÃ©o PC !" />
 <meta name="DC.type" content="Text" />
 
 <?php wp_head(); ?>

@@ -9,6 +9,7 @@ $bdd = new MyPDO();
 
 $p = 0;
 echo 'robot_humblebundle'."\n\n";
+echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
 do {
     $file = 'https://www.humblebundle.com/store/api?request=1&page_size=20&sort=discount&platform=windows&page=' . $p;
     //echo $file.'<br />';
@@ -43,8 +44,6 @@ do {
                     $percent
                 );
                 
-
-                //echo $simple_titre.':'.$percent."\n";
                 $ret = $bdd->query($sql,$data);
 
             
@@ -52,4 +51,6 @@ do {
             
         }
 $p++;
+
 } while ($nb_result > 0);
+echo "\nFin du script: ".date("H:i:s", microtime(true));

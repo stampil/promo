@@ -9,6 +9,7 @@ $bdd = new MyPDO();
 
 $p = 1;
 echo 'robot_gamesplanet'."\n\n";
+echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
 do {
     $file = 'https://fr.gamesplanet.com/games/offers?page=' . $p;
     $homepage = file_get_contents($file);
@@ -46,11 +47,11 @@ do {
                     $prix_apres,
                     $percent
                 );
-                
-                //echo $simple_titre.':'.$percent."\n";
+                                
                 $ret = $bdd->query($sql,$data);
             }
         }
     }
     $p++;
 } while ($nb_titre > 0);
+echo "\nFin du script: ".date("H:i:s", microtime(true));
