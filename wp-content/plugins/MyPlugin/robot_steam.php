@@ -21,7 +21,7 @@ do {
     
     $nb_titre = count($titres);
 
-    //print_r($titre);
+
 
 
     if ($nb_titre) {
@@ -52,7 +52,7 @@ do {
             );
             
             if($percent>0){
-                //echo $simple_titre.':'.$percent."\n";
+                echo $simple_titre.':'.$percent."\n";
                 $ret = $bdd->query($sql,$data);
             }
         }
