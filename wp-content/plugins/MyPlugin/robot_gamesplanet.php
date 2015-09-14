@@ -47,7 +47,7 @@ do {
                     $percent
                 );
                 
-                echo $simple_titre.':'.$percent."\n";
+                //echo $simple_titre.':'.$percent."\n";
                 $ret = $bdd->query($sql,$data);
             }
         }
