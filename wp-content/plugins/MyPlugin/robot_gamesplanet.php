@@ -8,6 +8,7 @@ $bdd = new MyPDO();
 
 
 $p = 1;
+echo 'robot_gamesplanet'."\n\n";
 do {
     $file = 'https://fr.gamesplanet.com/games/offers?page=' . $p;
     $homepage = file_get_contents($file);
@@ -15,7 +16,7 @@ do {
     $homepage = utf8_decode($homepage);
     
 
-    preg_match_all('|<div class="game".*src="(.*)".*<a href="(.*)">(.*)</a></h4>.*<strike>(.*)</strike>.*-(.*)%.*([0-9,\.]+)€.*</div>|sU', $homepage, $matches);
+    preg_match_all('|<div class="game".*src="(.*)".*<a href="(.*)">(.*)</a></h4>.*<strike>(.*)€</strike>.*-(.*)%.*([0-9,\.]+)€.*</div>|sU', $homepage, $matches);
     
     list($all,$photos, $link,$titre,$prix_avant, $percent,$prix_apres) = $matches;
     
@@ -25,22 +26,30 @@ do {
 
     if ($nb_titre) {
         for($i=0;$i<$nb_titre;$i++){
-
-            $ret = $bdd->query('INSERT INTO game (titre,simple_titre,link,img,prix_avant,prix_apres,percent,creato) VALUES(?,?,?,?,?,?,?,now()) ON DUPLICATE KEY UPDATE creato=now(),'
-                    . ' percent = IF(VALUES(percent) > percent, VALUES(percent),percent),'
-                    . ' prix_avant = IF(VALUES(percent) > percent, VALUES(prix_avant),prix_avant),'
-                    . ' prix_apres = IF(VALUES(percent) > percent, VALUES(prix_apres),prix_apres),'
-                    . ' link = IF(VALUES(percent) > percent, VALUES(link),link)',array(
-                trim($titre[$i]),
-                simple_format($titre[$i]),
-                trim('https://fr.gamesplanet.com'.$link[$i]),
-                $photos[$i],
-                str_replace(',','.',$prix_avant[$i]),
-                str_replace(',','.',$prix_apres[$i]),
-                $percent[$i]
-            ));
-            /*array_push($tab_game, array('titre' => trim($titre[$i]), 'link' => trim($link[$i]), 'simple_titre'=>simple_format($titre[$i]), 'img' => $photos[$i],
-                'prix_avant' => $prix_avant[$i], 'prix_apres' => $prix_apres[$i], 'percent' => $percent[$i]));*/
+            
+            $titre =  trim($titre[$i]);
+            $simple_titre = simple_format($titre[$i]);
+            $link = trim('https://fr.gamesplanet.com'.$link[$i]);
+            $photo = $photos[$i];
+            $prix_avant = str_replace(',','.',$prix_avant[$i]);
+            $prix_apres= str_replace(',','.',$prix_apres[$i]);
+            $percent = $percent[$i];
+            
+            if($percent){
+            
+                $data = array(
+                   $titre,
+                    $simple_titre,
+                    $link,
+                    $photo,
+                    $prix_avant,
+                    $prix_apres,
+                    $percent
+                );
+                
+                echo $simple_titre.':'.$percent."\n";
+                $ret = $bdd->query($sql,$data);
+            }
         }
     }
     $p++;

@@ -21,5 +21,12 @@ function simple_format($txt){
     $txt = preg_replace('/-+/', '-', $txt);
     return trim($txt);
 }
+
+$sql = 'INSERT INTO game (titre,simple_titre,link,img,prix_avant,prix_apres,percent,creato) VALUES(?,?,?,?,?,?,?,now()) ON DUPLICATE KEY UPDATE creato=now(),'
+                    . ' percent = IF(VALUES(prix_apres) < prix_apres, VALUES(percent),percent),'
+                    . ' prix_avant = IF(VALUES(prix_apres) < prix_apres, VALUES(prix_avant),prix_avant),'
+                    . ' link = IF(VALUES(prix_apres) < prix_apres, VALUES(link),link),'
+                    . ' prix_apres = IF(VALUES(prix_apres) < prix_apres, VALUES(prix_apres),prix_apres)'
+                    ;
 ?>
 
