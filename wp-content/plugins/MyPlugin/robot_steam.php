@@ -17,7 +17,7 @@ do {
 
     preg_match_all('|<a href="(.*)".*data-ds-appid=".+".*>.*><img src="(.*)".*<span class="title">(.*)</span>.*<div class="col search_discount">.*<span>-(.+)%.*<strike>([0-9.,]+)€</strike></span><br>([0-9.,]+)€.*</a>|sU', $homepage, $matches);
     
-    list($all,$link,$photos,$titres,$percent,$prix_avant,$prix_apres) = $matches;
+    list($all,$links,$photos,$titres,$percents,$prix_avants,$prix_apress) = $matches;
     
     $nb_titre = count($titres);
 
@@ -35,11 +35,11 @@ do {
             $simple_titre = simple_format($titre);
             
            
-            $link = trim($link[$i]);
+            $link = trim($links[$i]);
             $photo = $photos[$i];
-            $prix_avant = str_replace(',','.',$prix_avant[$i]);
-            $prix_apres = str_replace(',','.',$prix_apres[$i]);
-            $percent = $percent[$i];
+            $prix_avant = str_replace(',','.',$prix_avants[$i]);
+            $prix_apres = str_replace(',','.',$prix_apress[$i]);
+            $percent = $percents[$i];
 
             $data = array(
                 $titre,

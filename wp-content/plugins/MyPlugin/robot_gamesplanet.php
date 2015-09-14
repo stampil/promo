@@ -18,9 +18,9 @@ do {
 
     preg_match_all('|<div class="game".*src="(.*)".*<a href="(.*)">(.*)</a></h4>.*<strike>(.*)€</strike>.*-(.*)%.*([0-9,\.]+)€.*</div>|sU', $homepage, $matches);
     
-    list($all,$photos, $link,$titres,$prix_avant, $percent,$prix_apres) = $matches;
+    list($all,$photos, $links,$titres,$prix_avants, $percents,$prix_apress) = $matches;
     
-    $nb_titre = count($titre);
+    $nb_titre = count($titres);
 
 
 
@@ -29,11 +29,11 @@ do {
             
             $titre =  trim($titres[$i]);
             $simple_titre = simple_format($titre);
-            $link = trim('https://fr.gamesplanet.com'.$link[$i]);
+            $link = trim('https://fr.gamesplanet.com'.$links[$i]);
             $photo = $photos[$i];
-            $prix_avant = str_replace(',','.',$prix_avant[$i]);
-            $prix_apres= str_replace(',','.',$prix_apres[$i]);
-            $percent = $percent[$i];
+            $prix_avant = str_replace(',','.',$prix_avants[$i]);
+            $prix_apres= str_replace(',','.',$prix_apress[$i]);
+            $percent = $percents[$i];
             
             if($percent){
             
