@@ -1,9 +1,12 @@
 <?php get_header(); 
-$p=1;
+
 $nb_display = 50;
+/*$p=1;
 if(isset($_GET["pagin"]) && is_numeric($_GET["pagin"])){
     $p=$_GET["pagin"];
-}
+}*/
+$p = (get_query_var('page')) ? get_query_var('page') : 1;
+
 require 'wp-content/plugins/MyPlugin/class/MyPDO.php';
 $bdd = new MyPDO();
 
@@ -64,19 +67,35 @@ foreach($ret as $game){
 
 <?php } ?>
 </table>
-                <ul class="pagination-links">
+                
+                <?php
+                if($pagination && $p>1){
+                ?>
+                <a href="<?php echo get_permalink().($p-1).'/'; ?>" style="display: inline-block" >◄</a>
+                <?php 
+                
+                }
+                ?>
+                <ul class="pagination-links" style="display: inline-block">
                 <?php
                 if($pagination){
                     
                     for($pag =1; $pag<=$max_page; $pag++){
                     ?>
-                    <li <?php if($pag==$p) echo 'class="active"' ?>><a href="?pagin=<?php echo $pag; ?>"><?php echo $pag; ?></a></li>
+                    <li <?php if($pag==$p) echo 'class="active"' ?>><a href="<?php echo get_permalink().$pag.'/'; ?>"><?php echo $pag; ?></a></li>
                 <?php
                 }
                 }
                 
                 ?>
                 </ul>
+                <?php
+                if($pagination && $p<$max_page){
+                    ?>
+                <a href="<?php echo get_permalink().($p+1).'/'; ?>" style="display: inline-block" >►</a>
+                <?php
+                }
+                ?>
 		</div>
 	
 		<?php endif; ?>							
