@@ -118,7 +118,15 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
 		</div><!--/nav-left -->
 
 		<div id="nav-right">		
-		<div class="fb-share-button" data-href="http://jeuxenpromotion.fr/" data-layout="button_count"></div> 
+		<ul class="apico">
+                    <li><span class="apico-white apico-twitter" url="<?php echo get_permalink(); ?>" title="<?php woo_title(); ?>"></span> .apico-twitter</li>
+                    <li><span class="apico-white apico-facebook" url="<?php echo get_permalink(); ?>" title="<?php woo_title(); ?>"></span> .apico-facebook</li>
+                    <li><span class="apico-white apico-google-plus" url="<?php echo get_permalink(); ?>" title="<?php woo_title(); ?>"></span> .apico-google-plus</li>
+                    <li><span class="apico-white apico-linkedin" url="<?php echo get_permalink(); ?>" title="<?php woo_title(); ?>"></span> .apico-linkedin</li>
+                    <li><span class="apico-white apico-stumbleupon" url="<?php echo get_permalink(); ?>" title="<?php woo_title(); ?>"></span> .apico-stumbleupon</li>
+                    
+                    
+                </ul>
 			<!--form method="get" id="searchform" action="<?php bloginfo('home'); ?>/">
 				
 				<div id="search">
