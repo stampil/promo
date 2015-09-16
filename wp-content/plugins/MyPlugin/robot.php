@@ -1,5 +1,7 @@
 <?php
 $timestart=microtime(true);
+include 'devise.php';
+include 'robot_DCS.php';
 include 'robot_gog.php';
 include 'robot_humblebundle.php';
 include 'robot_gamesplanet.php';

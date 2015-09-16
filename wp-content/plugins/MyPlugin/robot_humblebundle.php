@@ -4,6 +4,7 @@ if (!headers_sent()) {
 }
 require_once 'inc/functions.php';
 require_once 'class/MyPDO.php';
+require_once 'devise.php';
 $bdd = new MyPDO();
 
 
@@ -29,9 +30,18 @@ do {
             $link = 'https://www.humblebundle.com/store/p/'.trim($homepage->results[$i]->machine_name);
             $photo = 'https://www.humblebundle.com'.trim($homepage->results[$i]->storefront_featured_image_small);
             $prix_avant = str_replace(',','.',$homepage->results[$i]->full_price[0]);
-            $prix_avant =  number_format($prix_avant*1.36,2,'.',''); //conversion GBP/EUR
+            $taux_full_price = @$taux[$homepage->results[$i]->full_price[1]];
+            if(!$taux_full_price){
+                $taux_full_price = 1;
+            }
+            $prix_avant =  number_format($prix_avant/$taux_full_price,2,'.',''); //conversion GBP/EUR
             $prix_apres = str_replace(',','.',$homepage->results[$i]->current_price[0]);
-            $prix_apres = number_format($prix_apres*1.36,2,'.',''); //conversion GBP/EUR
+            
+            $taux_current_price = @$taux[$homepage->results[$i]->current_price[1]];
+            if(!$taux_current_price){
+                $taux_current_price = 1;
+            }
+            $prix_apres = number_format($prix_apres/$taux_current_price,2,'.',''); //conversion GBP/EUR
             $percent = round((($prix_avant-$prix_apres)/$prix_avant)*100);
             
             if($percent>0){
