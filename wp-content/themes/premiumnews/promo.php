@@ -1,4 +1,8 @@
-<?php get_header();
+<?php
+/**
+ * Template Name: Promo
+ */
+get_header();
 $myPost = $post;
 
 $nb_display = 50;
@@ -72,7 +76,7 @@ foreach($ret as $game){
                 <?php
                 if($pagination && $p>1){
                 ?>
-                <a href="<?php echo get_permalink($myPost->ID).($p-1).'/'; ?>" class="inline_block" >◄</a>
+                <a href="http://jeuxenpromotion.fr/promo-du-moment/<?php echo ($p-1).'/'; ?>" class="inline_block" >◄</a>
                 <?php 
                 
                 }
@@ -83,7 +87,7 @@ foreach($ret as $game){
                     
                     for($pag =1; $pag<=$max_page; $pag++){
                     ?>
-                    <li <?php if($pag==$p) echo 'class="active"' ?>><a href="<?php echo get_permalink($myPost->ID).$pag.'/'; ?>"><?php echo $pag; ?></a></li>
+                    <li <?php if($pag==$p) echo 'class="active"' ?>><a href="http://jeuxenpromotion.fr/promo-du-moment/<?php echo $pag.'/'; ?>"><?php echo $pag; ?></a></li>
                 <?php
                 }
                 }
@@ -93,7 +97,7 @@ foreach($ret as $game){
                 <?php
                 if($pagination && $p<$max_page){
                     ?>
-                <a href="<?php echo get_permalink($myPost->ID).($p+1).'/'; ?>" class="inline_block" >►</a>
+                <a href="http://jeuxenpromotion.fr/promo-du-moment/<?php echo($p+1).'/'; ?>" class="inline_block" >►</a>
                 <?php
                 }
                 ?>
