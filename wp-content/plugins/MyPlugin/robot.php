@@ -13,4 +13,4 @@ $page_load_time = number_format($time, 3);
 echo "\nDebut du script: ".date("H:i:s", $timestart);
 echo "\nFin du script: ".date("H:i:s", $timeend);
 echo "\nScript execute en " . $page_load_time . " sec";
-echo "\nTotal Global " . $total_global . " sec";
+echo "\nTotal Global " . $total_global . " promos";

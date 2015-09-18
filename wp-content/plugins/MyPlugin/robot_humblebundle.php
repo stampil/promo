@@ -9,8 +9,9 @@ $bdd = new MyPDO();
 
 
 $p = 0;
-echo 'robot_humblebundle'."\n\n";
+echo "\n".'--robot_humblebundle'."\n\n";
 echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
+$nb_result_total=0;
 do {
     $file = 'https://www.humblebundle.com/store/api?request=1&page_size=20&sort=discount&platform=windows&page=' . $p;
     //echo $file.'<br />';
@@ -21,7 +22,9 @@ do {
 
 
     $nb_result = count(@$homepage->results);
-    echo $nb_result.' promos '."\n";
+    $nb_result_total+= $nb_result;
+    
+    $total_global+=$nb_result;
     
         for($i=0;$i<$nb_result;$i++){
             
@@ -65,4 +68,5 @@ do {
 $p++;
 
 } while ($nb_result > 0);
+echo $nb_result_total.' promos '."\n";
 echo "\nFin du script: ".date("H:i:s", microtime(true));

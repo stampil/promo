@@ -76,7 +76,7 @@ foreach($ret as $game){
                 
                 }
                 ?>
-                <ul class="pagination-links" class="inline_block">
+                <ul class="pagination-links inline_block" class="inline_block">
                 <?php
                 if($pagination){
                     

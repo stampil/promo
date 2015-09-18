@@ -9,8 +9,9 @@ $bdd = new MyPDO();
 
 $p = 1;
 
-echo 'robot_gog'."\n";
+echo "\n".'--robot_gog'."\n";
 echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
+$nb_result_total=0;
 do {
     $file = 'http://www.gog.com/games/ajax/filtered?mediaType=game&price=discounted&sort=bestselling&page=' . $p;
     //echo $file.'<br />';
@@ -19,14 +20,17 @@ do {
     $homepage = utf8_decode($homepage);
     $homepage = json_decode($homepage);
 
-    //var_dump($homepage);
+
+    
    
     $nb_result = count(@$homepage->products);
-    echo $nb_result.' promos '."\n";
+    $nb_result_total += $nb_result;
+    $total_global+=$nb_result;
+    
     
     
         for($i=0;$i<$nb_result;$i++){
-            
+
             $titre = trim($homepage->products[$i]->title);
             $simple_titre = simple_format($titre);
             $link = 'http://www.gog.com'.trim($homepage->products[$i]->url);
@@ -55,4 +59,5 @@ do {
         }
 $p++;
 } while ($nb_result > 0);
+echo $nb_result_total.' promos '."\n";
 echo "\nFin du script: ".date("H:i:s", microtime(true));

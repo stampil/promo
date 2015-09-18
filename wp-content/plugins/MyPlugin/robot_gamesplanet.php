@@ -8,8 +8,9 @@ $bdd = new MyPDO();
 
 
 $p = 1;
-echo 'robot_gamesplanet'."\n\n";
+echo "\n".'--robot_gamesplanet'."\n\n";
 echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
+$nb_result_total=0;
 do {
     $file = 'https://fr.gamesplanet.com/games/offers?page=' . $p;
     $homepage = file_get_contents($file);
@@ -22,7 +23,9 @@ do {
     list($all,$photos, $links,$titres,$prix_avants, $percents,$prix_apress) = $matches;
     
     $nb_titre = count($titres);
-     echo $nb_titre.' promos '."\n";
+    $nb_result_total+=$nb_titre;
+    $total_global+=$nb_titre;
+     
 
 
     if ($nb_titre) {
@@ -54,4 +57,5 @@ do {
     }
     $p++;
 } while ($nb_titre > 0);
+echo $nb_result_total.' promos '."\n";
 echo "\nFin du script: ".date("H:i:s", microtime(true));
