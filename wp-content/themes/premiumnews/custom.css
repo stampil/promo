@@ -55,6 +55,7 @@
     }
     table{
         margin:auto;
+        width:245px;
     }
 	img.size-medium{
 		width:250px
@@ -62,6 +63,12 @@
 	#attachment_30{
 		width:290px;
 	}
+        .vignette_jeux_video{
+            display:none;
+        }
+        .navbox{
+            width:290px;
+        }
 }
 
 @media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {

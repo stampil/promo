@@ -30,12 +30,6 @@ $top_ten = 30;
             $ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by percent desc, prix_apres asc LIMIT 1,'.$top_ten, array(date('Y-m-d')));
             ?>
             <table style="border:1px solid black;" width="100%">
-                <tr>
-                    <th width="120">Vignette</th>
-                    <th>Titre</th>
-                    <th width="45">Remise</th>
-                    <th width="45">Prix</th>
-                </tr>
 <?php
 
 foreach($ret as $game){
@@ -54,9 +48,9 @@ foreach($ret as $game){
 ?>
                     <tr onclick="window.open('<?php echo $game->link; ?>', '_blank');">
                         <td><img src="<?php echo $game->img; ?>" alt="<?php echo str_replace('"','',$game->titre); ?> en promo" title="<?php echo str_replace('"','',$game->titre); ?> en promotion" class="vignette_jeux_video" /></td>
-                        <td class="padding"><div class="tronq_titre"><?php echo $game->titre; ?></div></td>
-                        <td class="padding" align="right"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
-                        <td class="padding" align="right">
+                        <td class="padding" width="100"><div class="tronq_titre"><?php echo $game->titre; ?></div></td>
+                        <td class="padding" align="right" width="45"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
+                        <td class="padding" align="right" width="45">
                             <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
                             <?php echo $game->prix_apres; ?>€
                         </td>
@@ -73,12 +67,12 @@ foreach($ret as $game){
             $ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by  prix_apres asc, titre LIMIT 1,'.$top_ten, array(date('Y-m-d')));
             ?>
             <table style="border:1px solid black;" width="100%">
-                <tr>
+                <!--tr>
                     <th width="120">Vignette</th>
                     <th>Titre</th>
                     <th width="45">Remise</th>
                     <th width="45">Prix</th>
-                </tr>
+                </tr-->
 <?php
 
 foreach($ret as $game){
@@ -97,9 +91,9 @@ foreach($ret as $game){
 ?>
                     <tr onclick="window.open('<?php echo $game->link; ?>', '_blank');">
                         <td><img src="<?php echo $game->img; ?>" alt="<?php echo str_replace('"','',$game->titre); ?> en promo" title="<?php echo str_replace('"','',$game->titre); ?> en promotion" class="vignette_jeux_video" /></td>
-                        <td class="padding"><div class="tronq_titre"><?php echo $game->titre; ?></div></td>
-                        <td class="padding" align="right"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
-                        <td class="padding" align="right">
+                        <td class="padding" width="100"><div class="tronq_titre"><?php echo $game->titre; ?></div></td>
+                        <td class="padding" align="right" width="45"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
+                        <td class="padding" align="right" width="45">
                             <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
                             <?php echo $game->prix_apres; ?>€
                         </td>

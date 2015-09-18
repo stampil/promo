@@ -22,7 +22,7 @@ do {
     //var_dump($homepage);
    
     $nb_result = count(@$homepage->products);
-
+    echo $nb_result.' promos '."\n";
     
     
         for($i=0;$i<$nb_result;$i++){

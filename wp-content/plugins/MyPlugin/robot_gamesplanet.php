@@ -22,7 +22,7 @@ do {
     list($all,$photos, $links,$titres,$prix_avants, $percents,$prix_apress) = $matches;
     
     $nb_titre = count($titres);
-
+     echo $nb_titre.' promos '."\n";
 
 
     if ($nb_titre) {

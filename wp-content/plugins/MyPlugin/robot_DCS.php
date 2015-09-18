@@ -9,7 +9,7 @@ $bdd = new MyPDO();
 
 
 
-echo 'robot_steam'."\n\n";
+echo 'robot_DCS'."\n\n";
 echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
 
 $file = 'http://www.digitalcombatsimulator.com/en/shop/modules/?SHOWALL_1=1';
@@ -23,6 +23,8 @@ preg_match_all('|.*<img src="(/upload/.*)".*alt=".+".*preview-item">.*<div class
 list($all,$photos,$links,$titres,$prix_avants,$prix_cent_avants,$prix_apress,$prix_cent_apress) = $matches;
 
 $nb_titre = count($titres);
+$total_global+=$nb_titre;
+echo $nb_titre.' promos '."\n";
 
 
 

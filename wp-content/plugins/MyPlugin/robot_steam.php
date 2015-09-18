@@ -13,14 +13,16 @@ echo "\nDebut du script: ".date("H:i:s", microtime(true))."\n";
 do {
     $file = 'http://store.steampowered.com/search/results?sort_by=Released_DESC&os=win&specials=1&page=' . $p;
     $homepage = file_get_contents($file);
+
     $homepage = mb_convert_encoding($homepage, 'UTF-8', 'iso-8859-1');
     $homepage = utf8_decode($homepage);
 
-    preg_match_all('|<a href="(.*)".*data-ds-appid=".+".*>.*><img src="(.*)".*<span class="title">(.*)</span>.*<div class="col search_discount">.*<span>-(.+)%.*<strike>([0-9.,]+)€</strike></span><br>([0-9.,]+)€.*</a>|sU', $homepage, $matches);
+    preg_match_all('|<a href="(.*)".*data-ds-appid=".+".*>.*><img src="(.*)".*<span class="title">(.*)</span>.*<div class="col search_discount.*">.*<span>-(.+)%.*<strike>([0-9.,]+)€</strike></span><br>([0-9.,]+)€.*</a>|sU', $homepage, $matches);
     
     list($all,$links,$photos,$titres,$percents,$prix_avants,$prix_apress) = $matches;
     
     $nb_titre = count($titres);
+    echo $nb_titre.' promos '."\n";
 
 
 

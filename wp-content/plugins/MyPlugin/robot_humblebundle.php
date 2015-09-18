@@ -21,7 +21,7 @@ do {
 
 
     $nb_result = count(@$homepage->results);
-
+    echo $nb_result.' promos '."\n";
     
         for($i=0;$i<$nb_result;$i++){
             
