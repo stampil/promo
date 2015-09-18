@@ -2,6 +2,7 @@
 /**
  * Template Name: Home
  */
+$post_home = $post;
 get_header(); 
 $p=1;
 $nb_display = 50;
@@ -18,7 +19,7 @@ if(!$max){
 }
 
 
-$ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by percent desc, prix_apres asc LIMIT '.$p.','.$nb_display, array(date('Y-m-d')));
+$ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by percent desc, prix_apres asc LIMIT '.($p-1).','.$nb_display, array(date('Y-m-d')));
 $ret_max = $bdd->query('SELECT FOUND_ROWS() as max_result');
 $max = (int) $ret_max[0]->max_result;
 ?>
@@ -32,7 +33,7 @@ $max = (int) $ret_max[0]->max_result;
             	<h2><?php echo $max ?> jeux en promo aujourd'hui.</h2>      
                 <br />
 		<?php
-   echo apply_filters('the_content', $post->post_content);  
+   echo apply_filters('the_content', $post_home->post_content);  
    ?>
 		</div>
 	

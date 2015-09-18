@@ -146,10 +146,13 @@ jQuery("#lavaLamp, #2, #3").lavaLamp({
 				
 			</ul>
 			
-		</div--><!--/rss--><form method="get" id="searchform" action="<?php bloginfo('home'); ?>/">
+		</div--><!--/rss--><form method="get" id="searchform" action="<?php 
+                $post = get_page_by_title('Recherche');
+                echo get_permalink($post->ID)
+                 ?>/">
 				
 				<div id="search">
-					<input type="text" value="<?php _e('Enter your search keywords here...',woothemes); ?>" onclick="this.value='';" name="s" id="s" />
+					<input type="text" value="<?php _e('Enter your search keywords here...',woothemes); ?>" onclick="this.value='';" name="q" id="s" />
 					<input name="" type="image" src="<?php bloginfo('template_directory'); ?>/styles/<?php echo "$style_path"; ?>/ico-go.gif" value="<?php _e('Go',woothemes); ?>" class="btn"  />
 				</div><!--/search -->
 				
