@@ -134,22 +134,22 @@
 
 <?php else : ?>
 
-<p style="padding:10px 0px 10px 0px;"><input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" />
+<p class="pcomment"><input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" />
 <label for="author"><small><?php _e('Name',woothemes); ?> <?php if ($req) echo  __('(required)',woothemes); ?></small></label></p>
 
-<p style="padding:10px 0px 10px 0px;"><input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />
+<p class="pcomment"><input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />
 <label for="email"><small><?php _e('Mail (will not be published)',woothemes); ?> <?php if ($req) echo  __('(required)',woothemes); ?></small></label></p>
 
-<p style="padding:10px 0px 10px 0px;"><input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
+<p class="pcomment"><input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
 <label for="url"><small><?php _e('Website',woothemes); ?></small></label></p>
 
 <?php endif; ?>
 
 <!--<p><small><strong>XHTML:</strong> You can use these tags: <?php echo allowed_tags(); ?></small></p>-->
 
-<p style="padding:10px 0px 10px 0px;"><textarea name="comment" id="comment" style="width:99%;" rows="10" tabindex="4"></textarea></p>
+<p class="pcomment"><textarea name="comment" id="comment" rows="10" tabindex="4"></textarea></p>
 
-<p style="padding:10px 0px 10px 0px;"><input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit Comment',woothemes); ?>" />
+<p class="pcomment"><input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit Comment',woothemes); ?>" />
 <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
 </p>
 <?php do_action('comment_form', $post->ID); ?>

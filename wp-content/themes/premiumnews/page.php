@@ -32,7 +32,7 @@ if(count($ret)<$max){
         	
             	<h2><?php echo $max ?> jeux en promo aujourd'hui.</h2>      
                 <br />
-		<table style="border:1px solid black;" width="100%">
+		<table width="100%">
                     <tr>
                         <th width="120">Vignette</th>
                         <th>Titre</th>
@@ -60,7 +60,7 @@ foreach($ret as $game){
         <td class="padding"><?php echo $game->titre; ?></td>
         <td class="padding" align="right"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
         <td class="padding" align="right">
-            <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
+            <div class="prix_avant"><?php echo $game->prix_avant; ?>€</div>
             <?php echo $game->prix_apres; ?>€
         </td>
     </tr>
@@ -71,12 +71,12 @@ foreach($ret as $game){
                 <?php
                 if($pagination && $p>1){
                 ?>
-                <a href="<?php echo get_permalink().($p-1).'/'; ?>" style="display: inline-block" >◄</a>
+                <a href="<?php echo get_permalink().($p-1).'/'; ?>" class="inline_block" >◄</a>
                 <?php 
                 
                 }
                 ?>
-                <ul class="pagination-links" style="display: inline-block">
+                <ul class="pagination-links" class="inline_block">
                 <?php
                 if($pagination){
                     
@@ -92,7 +92,7 @@ foreach($ret as $game){
                 <?php
                 if($pagination && $p<$max_page){
                     ?>
-                <a href="<?php echo get_permalink().($p+1).'/'; ?>" style="display: inline-block" >►</a>
+                <a href="<?php echo get_permalink().($p+1).'/'; ?>" class="inline_block" >►</a>
                 <?php
                 }
                 ?>

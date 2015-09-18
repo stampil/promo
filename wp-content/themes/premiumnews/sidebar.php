@@ -20,7 +20,7 @@ $top_ten = 30;
 
     </div><!--/sideTabs-->
 
-    <div class="fix" style="height:2px;"></div>
+    <div class="fix"></div>
 
     <div class="navbox">
 
@@ -29,7 +29,7 @@ $top_ten = 30;
             global $bdd;
             $ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by percent desc, prix_apres asc LIMIT 1,'.$top_ten, array(date('Y-m-d')));
             ?>
-            <table style="border:1px solid black;" width="100%">
+            <table width="100%">
 <?php
 
 foreach($ret as $game){
@@ -51,7 +51,7 @@ foreach($ret as $game){
                         <td class="padding" width="100"><div class="tronq_titre"><?php echo $game->titre; ?></div></td>
                         <td class="padding" align="right" width="45"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
                         <td class="padding" align="right" width="45">
-                            <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
+                            <div class="prix_avant"><?php echo $game->prix_avant; ?>€</div>
                             <?php echo $game->prix_apres; ?>€
                         </td>
                     </tr>
@@ -66,7 +66,7 @@ foreach($ret as $game){
             global $bdd;
             $ret = $bdd->query('SELECT SQL_CALC_FOUND_ROWS * from game where creato=? order by  prix_apres asc, titre LIMIT 1,'.$top_ten, array(date('Y-m-d')));
             ?>
-            <table style="border:1px solid black;" width="100%">
+            <table width="100%">
                 <!--tr>
                     <th width="120">Vignette</th>
                     <th>Titre</th>
@@ -94,7 +94,7 @@ foreach($ret as $game){
                         <td class="padding" width="100"><div class="tronq_titre"><?php echo $game->titre; ?></div></td>
                         <td class="padding" align="right" width="45"><div class="percent <?php echo $class; ?>">-<?php echo $game->percent; ?>%</div></td>
                         <td class="padding" align="right" width="45">
-                            <div style="text-decoration: line-through;color:gray"><?php echo $game->prix_avant; ?>€</div>
+                            <div class="prix_avant"><?php echo $game->prix_avant; ?>€</div>
                             <?php echo $game->prix_apres; ?>€
                         </td>
                     </tr>

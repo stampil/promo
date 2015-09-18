@@ -40,7 +40,7 @@ Template Name: Archives Page
 			
 				<div id="archivebox">
 					
-						<h2 style="margin-bottom:10px;">POPULAR TAGS</h2>
+						<h2>POPULAR TAGS</h2>
 
 						<ul class="list1">
 							<?php wp_tag_cloud('smallest=10&largest=18'); ?>
