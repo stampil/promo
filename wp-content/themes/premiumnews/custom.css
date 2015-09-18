@@ -1,3 +1,18 @@
+#wpadminbar{display:none}
+.post  { margin: -5px 0 0 0; }
+.shortcode-typography { display: block; margin-top: 20px; }
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
 #cookie-banner-message a,th{color:#fff}.percent,th{font-weight:700}.vignette_jeux_video{width:120px;height:45px;cursor:help}.tronq_titre{width:80px;height:42px;overflow:hidden}table{border-collapse:collapse}table,td,th,tr{border:1px solid #000}td.padding{padding:0 10px;cursor:pointer}th{background-color:#000}ul.pagination-links li{display:inline-block;cursor:pointer}ul.pagination-links li:hover{text-decoration:underline}ul.pagination-links li.active a{color:gray;cursor:none}.percent{border-radius:10px;padding:2px;opacity:.8}.percent.heavy{background:#8b0000;color:#f5f5f5}.percent.strong{background:red;color:wheat}.percent.medium{background:orange}.percent.light{background:#ff0}
 @media only screen and (max-width: 977px) {
     #page{

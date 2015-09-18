@@ -19,10 +19,7 @@ $woo_shortcode_css = get_template_directory_uri() . '/functions/css/shortcodes.c
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" ></script>
 <link rel="stylesheet" href="<?php echo $woo_theme_css; ?>" media="all" />
 <link rel="stylesheet" href="<?php echo $woo_shortcode_css; ?>" media="all" />
-<style>
-	.post  { margin: -5px 0 0 0; }
-	.shortcode-typography { display: block; margin-top: 20px; }	
-</style>
+
 <?php
 	$font = trim( strip_tags( $_REQUEST['font'] ) );
 	
