@@ -7,6 +7,7 @@ include 'robot_gog.php';
 include 'robot_humblebundle.php';
 include 'robot_gamesplanet.php';
 include 'robot_steam.php';
+include 'check_mail.php';
 $timeend=microtime(true);
 $time=$timeend-$timestart;
 $page_load_time = number_format($time, 3);
