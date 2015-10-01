@@ -39,14 +39,14 @@ AND creato = '".date('Y-m-d')."' AND (prix_apres<=$euro OR percent>=$percent)");
         if($nb_result){
             $html='<H1>Jeuxenpromotions.fr</H1>'
                 . '<p>Bonjour '.ucfirst($nom).' !</p>'
-                . '<p>Vous avez demandé a être informé pour des jeux ayant pour mot-clé : '.$tag.'</p>'
+                . '<p>Vous avez demandé à être informé pour des jeux ayant pour mot(s)-clé : '.$tag.'</p>'
                 . '<p>Etant soit à moins de '.$euro.'€ ou à plus de '.$percent.'% de remise.</p>'
                 . '<p>Jeux en promotion à la joie de vous faire par des résultats suivant :</p>';
             foreach($ret_res as $jeu){
                 $html.='<p><a href="'.$jeu->link.'"><img src="'.$jeu->img.'" /></a><br /><a href="'.$jeu->link.'">'.$jeu->titre.'</a> à '.$jeu->prix_apres.'€ ('.$jeu->percent.'%)</p>';
             }
             $html.='<br /><br /><hr />'
-                . '<p>Attention, pour eviter tout spam, cette recherche par mot-clé va être désactivée ( vous ne recevrez plus de mail si une nouvelle correspondance ce fait), si le résultat ne vous convient pas, je vous invite à refaire une alert mail avec des mot-clés plus spécifiques, sur <a href="http://jeuxenpromotion.fr">jeuxenpromotion.fr</a></p>';
+                . '<p>Attention, pour eviter tout spam, cette recherche par mot-clé vient d\'être désactivée ( vous ne recevrez plus de mail si une nouvelle correspondance ce fait). Si le résultat ne vous convient pas, je vous invite à refaire une alerte mail avec des mot-clés plus spécifiques, sur <a href="http://jeuxenpromotion.fr">jeuxenpromotion.fr</a></p>';
             
         
                  // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
@@ -54,10 +54,8 @@ AND creato = '".date('Y-m-d')."' AND (prix_apres<=$euro OR percent>=$percent)");
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
             // En-têtes additionnels
-            $headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
-            $headers .= 'From: Anniversaire <anniversaire@example.com>' . "\r\n";
-            $headers .= 'Cc: anniversaire_archive@example.com' . "\r\n";
-            $headers .= 'Bcc: anniversaire_verif@example.com' . "\r\n";
+            $headers .= 'To: '.ucfirst($nom).' <'.$email.'>' . "\r\n";
+            $headers .= 'From: jeuxenpromotion <jeuxenpromotion@no-reply.com>' . "\r\n";
 
             // Envoi
 
